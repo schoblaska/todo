@@ -1,5 +1,10 @@
 <h1>To Do</h1>
 
+<form id="new_todo_item">
+  <input type="text" name="name" id="new_todo_item_name">
+  <input type="submit" value="Add">
+</form>
+
 <ul>
 <% for todo_item in @todo_items.models: %>
   <li><%= todo_item.get('name') %></li>
