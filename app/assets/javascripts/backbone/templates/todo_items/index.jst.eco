@@ -1,7 +1,7 @@
 <h1>To Do</h1>
 
-<form id="new_todo_item">
-  <input type="text" name="name" id="new_todo_item_name">
+<form id="new-todo-item">
+  <input type="text" name="name" id="new-todo-item-name">
   <input type="submit" value="Add">
 </form>
 

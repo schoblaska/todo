@@ -2,7 +2,7 @@ class Todo.Views.TodoItemsIndex extends Backbone.View
   template: JST['backbone/templates/todo_items/index']
 
   events:
-    'submit #new_todo_item': 'createTodoItem'
+    'submit #new-todo-item': 'createTodoItem'
 
   initialize: ->
     @collection.on('reset', @render)
@@ -15,8 +15,18 @@ class Todo.Views.TodoItemsIndex extends Backbone.View
 
   createTodoItem: (event) ->
     event.preventDefault()
-    @collection.create name: $('#new_todo_item_name').val()
+    attributes = name: $('#new-todo-item-name').val()
+    @collection.create todo_item: attributes,
+      wait: true
+      success: -> $('#new-todo-item')[0].reset()
+      error: @handleError
 
   appendTodoItem: (todo_item) ->
     view = new Todo.Views.TodoItem(model: todo_item)
     $('#todo-items').append(view.render().el)
+
+  handleError: (todo_item, response) ->
+    if response.status == 422
+      errors  = $.parseJSON(response.responseText).errors
+      for attribute, messages of errors
+        alert "#{attribute} #{message}" for message in messages
