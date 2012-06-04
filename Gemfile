@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.5'
 
+gem 'haml'
 gem 'jquery-rails'
 gem 'json'
 gem 'rails-backbone'
