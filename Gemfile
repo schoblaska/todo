@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.5'
 
+gem 'eco'
 gem 'haml'
 gem 'jquery-rails'
 gem 'json'

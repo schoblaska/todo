@@ -9,3 +9,9 @@ window.Todo =
   Collections: {}
   Routers: {}
   Views: {}
+  init: ->
+    new Todo.Routers.TodoItemsRouter
+    Backbone.history.start()
+
+$(document).ready ->
+  Todo.init()
