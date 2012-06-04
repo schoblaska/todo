@@ -1,6 +1,9 @@
 class Todo.Views.TodoItemsIndex extends Backbone.View
   template: JST['backbone/templates/todo_items/index']
 
-  render: ->
-    $(@el).html(@template(todo_items: 'testing'))
+  initialize: ->
+    @collection.on('reset', @render)
+
+  render: =>
+    $(@el).html(@template(todo_items: @collection))
     this

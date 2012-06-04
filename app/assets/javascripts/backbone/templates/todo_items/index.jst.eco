@@ -1,3 +1,7 @@
 <h1>To Do</h1>
 
-<%= @todo_items %>
+<ul>
+<% for todo_item in @todo_items.models: %>
+  <li><%= todo_item.get('name') %></li>
+<% end %>
+</ul>
