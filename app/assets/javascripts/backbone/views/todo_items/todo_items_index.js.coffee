@@ -16,7 +16,7 @@ class Todo.Views.TodoItemsIndex extends Backbone.View
   createTodoItem: (event) ->
     event.preventDefault()
     attributes = name: $('#new-todo-item-name').val()
-    @collection.create todo_item: attributes,
+    @collection.create attributes,
       wait: true
       success: -> $('#new-todo-item')[0].reset()
       error: @handleError

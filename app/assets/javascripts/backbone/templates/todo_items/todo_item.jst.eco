@@ -1,1 +1,5 @@
-<%= @todo_item.get('name') %>
+<% if @todo_item.get('done'): %>
+  <span class="done"><%= @todo_item.get('name') %></span>
+<% else: %>
+  <%= @todo_item.get('name') %> - <span class="mark-done">[done]</span>
+<% end %>
